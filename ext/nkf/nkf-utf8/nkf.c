@@ -144,7 +144,7 @@ static void w_oconv(nkf_char c2, nkf_char c1);
 static void w_oconv16(nkf_char c2, nkf_char c1);
 static void w_oconv32(nkf_char c2, nkf_char c1);
 
-typedef struct {
+typedef const struct {
     const char *name;
     nkf_char (*iconv)(nkf_char c2, nkf_char c1, nkf_char c0);
     void (*oconv)(nkf_char c2, nkf_char c1);
@@ -158,7 +158,7 @@ nkf_native_encoding NkfEncodingUTF_8 =		{ "UTF-8", w_iconv, w_oconv };
 nkf_native_encoding NkfEncodingUTF_16 =		{ "UTF-16", w_iconv16, w_oconv16 };
 nkf_native_encoding NkfEncodingUTF_32 =		{ "UTF-32", w_iconv32, w_oconv32 };
 
-typedef struct {
+typedef const struct {
     const int id;
     const char *name;
     const nkf_native_encoding *base_encoding;
@@ -204,7 +204,7 @@ nkf_encoding nkf_encoding_table[] = {
     {-1,		NULL,			NULL}
 };
 
-struct {
+const struct {
     const char *name;
     const int id;
 } encoding_name_to_id_table[] = {
